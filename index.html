@@ -1,0 +1,51 @@
+<!doctype html>
+
+<html>
+<head>
+  <title>PolymerMapCOdelab-retry</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+
+  <script src="bower_components/webcomponentsjs/webcomponents.js"></script>
+  <link rel="import" href="bower_components/google-map/google-map.html">
+  <link rel="import" href="bower_components/google-map/google-map-directions.html">
+  <link rel="import" href="bower_components/core-icon/core-icon.html">
+  <link rel="import" href="bower_components/core-icons/maps-icons.html">
+  <link rel="import" href="bower_components/core-field/core-field.html">
+  <link rel="import" href="bower_components/core-item/core-item.html">
+  <link rel="import" href="bower_components/core-selector/core-selector.html">
+  <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+
+<body unresolved>
+
+<template is="auto-binding">
+    <google-map map="{{map}}" latitude="7.446786" longitude="3.896204" disableDefaultUI>
+      <google-map-marker latitude="7.446786" longitude="3.896204" title="Go Giants!" draggable="true"></google-map-marker>
+    </google-map>
+
+    <google-map-directions map="{{map}}" startAddress="{{start}}" endAddress="{{end}}" travelMode="{{travelMode.label}}"></google-map-directions>
+
+    <div id="inputs">
+        <core-selector selected="0" selectedItem="{{travelMode}}" layout horizontal>
+            <core-field>
+              <core-icon icon="icon:search"></core-icon>
+              <input placeholder="start address" value="{{start}}">
+            </core-field>
+            <core-field>
+              <core-icon icon="icon:search"></core-icon>
+              <input placeholder="end address" value="{{end}}">
+            </core-field>
+            <core-item icon="maps:directions-car" label="DRIVING"></core-item>
+            <core-item icon="maps:directions-walk" label="WALKING"></core-item>
+            <core-item icon="maps:directions-bike" label="BICYCLING"></core-item>
+            <core-item icon="maps:directions-transit" label="TRANSIT"></core-item>
+        </core-selector>
+    </div>
+</template>
+
+
+</body>
+</html>
